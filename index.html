@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtro de Produtos</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 2em;
+        }
+        #filter-container {
+            margin-bottom: 2em;
+            display: flex;
+            gap: 1em;
+        }
+        input {
+            padding: 50%em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 0.8em;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Filtro de Produtos</h2>
+
+    <div id="filter-container">
+        <input type="text" id="refInput" onkeyup="filterTable()" placeholder="Filtrar por Referência...">
+        <input type="text" id="artigoInput" onkeyup="filterTable()" placeholder="Filtrar por Artigo...">
+        <input type="text" id="descontoInput" onkeyup="filterTable()" placeholder="Filtrar por Desconto...">
+    </div>
+
+    <table border="1" class="dataframe table table-striped" id="dataTable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>GENERO</th>
+      <th>ARTIGO</th>
+      <th>REFERÊNCIA</th>
+      <th>COR</th>
+      <th>DESCONTO_ORIGINAL</th>
+      <th>COLEÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FEMININO</td>
+      <td>CALÇA</td>
+      <td>110FW25061</td>
+      <td>09-PRETO</td>
+      <td>30%</td>
+      <td>PROX.VERÃO</td>
+    </tr>
+    <tr>
+      <td>FEMININO</td>
+      <td>CALÇA</td>
+      <td>110FW25061</td>
+      <td>18-MARROM</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>FEMININO</td>
+      <td>CALÇA</td>
+      <td>110FW25061</td>
+      <td>90-VERDE MILITAR</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>FEMININO</td>
+      <td>JAQUETA</td>
+      <td>109FW25047</td>
+      <td>02-OFF WHITE</td>
+      <td>30%</td>
+      <td>PROX.VERÃO</td>
+    </tr>
+    <tr>
+      <td>FEMININO</td>
+      <td>JAQUETA</td>
+      <td>109FW25047</td>
+      <td>09-PRETO</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>FEMININO</td>
+      <td>JAQUETA</td>
+      <td>109FW25047</td>
+      <td>50-VERDE</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>FEMININO</td>
+      <td>JAQUETA</td>
+      <td>109FW25047</td>
+      <td>77-AREIA</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>FEMININO</td>
+      <td>JAQUETA</td>
+      <td>109FW25047</td>
+      <td>79-VINHO</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>FEMININO</td>
+      <td>SAIA</td>
+      <td>116FW25097</td>
+      <td>09-PRETO</td>
+      <td>30%</td>
+      <td>PROX.VERÃO</td>
+    </tr>
+    <tr>
+      <td>FEMININO</td>
+      <td>SAIA</td>
+      <td>116FW25097</td>
+      <td>77-AREIA</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>FEMININO</td>
+      <td>SAIA</td>
+      <td>116FW25097</td>
+      <td>79-VINHO</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>FEMININO</td>
+      <td>TOP</td>
+      <td>101FW25001</td>
+      <td>09-PRETO</td>
+      <td>30%</td>
+      <td>PROX.VERÃO</td>
+    </tr>
+    <tr>
+      <td>FEMININO</td>
+      <td>TOP</td>
+      <td>101FW25001</td>
+      <td>50-VERDE</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>FEMININO</td>
+      <td>TOP</td>
+      <td>101FW25001</td>
+      <td>77-AREIA</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>FEMININO</td>
+      <td>TOP</td>
+      <td>101FW25001</td>
+      <td>79-VINHO</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>FEMININO</td>
+      <td>VESTIDO</td>
+      <td>118FW25109</td>
+      <td>09-PRETO</td>
+      <td>30%</td>
+      <td>PROX.VERÃO</td>
+    </tr>
+    <tr>
+      <td>FEMININO</td>
+      <td>VESTIDO</td>
+      <td>118FW25109</td>
+      <td>108-BEGE</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>FEMININO</td>
+      <td>VESTIDO</td>
+      <td>118FW25109</td>
+      <td>50-VERDE</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>MASCULINO</td>
+      <td>BERMUDA</td>
+      <td>211FW25280</td>
+      <td>08-GRAFITE</td>
+      <td>30%</td>
+      <td>PROX.VERÃO</td>
+    </tr>
+    <tr>
+      <td>MASCULINO</td>
+      <td>BERMUDA</td>
+      <td>211FW25280</td>
+      <td>09-PRETO</td>
+      <td>30%</td>
+      <td>PROX.VERÃO</td>
+    </tr>
+    <tr>
+      <td>MASCULINO</td>
+      <td>BERMUDA</td>
+      <td>211FW25280</td>
+      <td>500-GELO</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>MASCULINO</td>
+      <td>BERMUDA</td>
+      <td>211FW25280</td>
+      <td>71-CAQUI</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>MASCULINO</td>
+      <td>BERMUDA</td>
+      <td>211FW25286</td>
+      <td>08-GRAFITE</td>
+      <td>30%</td>
+      <td>PROX.VERÃO</td>
+    </tr>
+    <tr>
+      <td>MASCULINO</td>
+      <td>BERMUDA</td>
+      <td>211FW25286</td>
+      <td>09-PRETO</td>
+      <td>30%</td>
+      <td>PROX.VERÃO</td>
+    </tr>
+    <tr>
+      <td>MASCULINO</td>
+      <td>BERMUDA</td>
+      <td>211FW25286</td>
+      <td>50-VERDE</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>MASCULINO</td>
+      <td>BERMUDA</td>
+      <td>211FW25286</td>
+      <td>71-CAQUI</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>MASCULINO</td>
+      <td>CALÇA</td>
+      <td>210FW25272</td>
+      <td>09-PRETO</td>
+      <td>30%</td>
+      <td>PROX.VERÃO</td>
+    </tr>
+    <tr>
+      <td>MASCULINO</td>
+      <td>CALÇA</td>
+      <td>210FW25272</td>
+      <td>106-NATURAL</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>MASCULINO</td>
+      <td>CALÇA</td>
+      <td>210FW25272</td>
+      <td>500-GELO</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>MASCULINO</td>
+      <td>CALÇA</td>
+      <td>210FW25272</td>
+      <td>90-VERDE MILITAR</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>MASCULINO</td>
+      <td>CAMISA</td>
+      <td>206FW25260</td>
+      <td>09-PRETO</td>
+      <td>30%</td>
+      <td>PROX.VERÃO</td>
+    </tr>
+    <tr>
+      <td>MASCULINO</td>
+      <td>CAMISA</td>
+      <td>206FW25260</td>
+      <td>106-NATURAL</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>MASCULINO</td>
+      <td>CAMISA</td>
+      <td>206FW25260</td>
+      <td>50-VERDE</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>MASCULINO</td>
+      <td>CAMISA</td>
+      <td>206FW25260</td>
+      <td>500-GELO</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>MASCULINO</td>
+      <td>CAMISA</td>
+      <td>206FW25260</td>
+      <td>71-CAQUI</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+    <tr>
+      <td>MASCULINO</td>
+      <td>CAMISA</td>
+      <td>206FW25260</td>
+      <td>90-VERDE MILITAR</td>
+      <td>50%</td>
+      <td>BAZAR</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+    function filterTable() {
+      // Declare variables
+      var refInput, artigoInput, descontoInput, filterRef, filterArtigo, filterDesconto, table, tr, tdRef, tdArtigo, tdDesconto, i, txtValueRef, txtValueArtigo, txtValueDesconto;
+      refInput = document.getElementById("refInput");
+      artigoInput = document.getElementById("artigoInput");
+      descontoInput = document.getElementById("descontoInput");
+      filterRef = refInput.value.toUpperCase();
+      filterArtigo = artigoInput.value.toUpperCase();
+      filterDesconto = descontoInput.value.toUpperCase();
+      table = document.getElementById("dataTable");
+      tr = table.getElementsByTagName("tr");
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 1; i < tr.length; i++) { // Start from 1 to skip the header row
+        tdRef = tr[i].getElementsByTagName("td")[2]; // Column for 'REFERÊNCIA'
+        tdArtigo = tr[i].getElementsByTagName("td")[1]; // Column for 'ARTIGO'
+        tdDesconto = tr[i].getElementsByTagName("td")[4]; // Column for 'DESCONTO_ORIGINAL'
+        if (tdRef && tdArtigo && tdDesconto) {
+          txtValueRef = tdRef.textContent || tdRef.innerText;
+          txtValueArtigo = tdArtigo.textContent || tdArtigo.innerText;
+          txtValueDesconto = tdDesconto.textContent || tdDesconto.innerText;
+          if (txtValueRef.toUpperCase().indexOf(filterRef) > -1 &&
+              txtValueArtigo.toUpperCase().indexOf(filterArtigo) > -1 &&
+              txtValueDesconto.toUpperCase().indexOf(filterDesconto) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+    </script>
+
+</body>
+</html>
